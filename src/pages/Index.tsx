@@ -1,4 +1,5 @@
 import QRGenerator from '@/components/QRGenerator';
+import QRGuide from '@/components/QRGuide';
 import { QrCode } from 'lucide-react';
 
 const Index = () => {
@@ -26,7 +27,7 @@ const Index = () => {
             <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
               <QrCode className="w-5 h-5 text-primary" />
             </div>
-            <span className="font-semibold text-foreground">QR Generator</span>
+            <span className="font-semibold text-foreground">QR Generator Pro</span>
           </div>
         </header>
 
@@ -35,11 +36,11 @@ const Index = () => {
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
               <span className="text-foreground">Crie seu </span>
-              <span className="gradient-text">QR Code</span>
+              <span className="gradient-text">QR Code Profissional</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Transforme qualquer link ou texto em um QR Code elegante. 
-              Rápido, gratuito e sem limites.
+              Gerador completo com personalização de cores, múltiplos tipos de códigos 
+              e suporte a logo. Rápido, gratuito e profissional.
             </p>
           </div>
 
@@ -50,16 +51,16 @@ const Index = () => {
           <div className="max-w-4xl mx-auto mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                title: 'Rápido',
-                description: 'Geração instantânea de QR Codes de alta qualidade',
+                title: '5 Tipos de QR',
+                description: 'URL, WiFi, Texto, VCard e E-mail em um só lugar',
               },
               {
-                title: 'Gratuito',
-                description: 'Sem custos, sem cadastro, sem limitações',
+                title: 'Personalização',
+                description: 'Cores customizadas, níveis de correção e logo central',
               },
               {
-                title: 'Download',
-                description: 'Baixe em alta resolução para impressão',
+                title: 'Alta Qualidade',
+                description: 'Download em PNG de alta resolução para impressão',
               },
             ].map((feature, index) => (
               <div 
@@ -71,12 +72,15 @@ const Index = () => {
               </div>
             ))}
           </div>
+
+          {/* Usage Guide Section */}
+          <QRGuide />
         </main>
 
         {/* Footer */}
         <footer className="py-8 px-6 text-center">
           <p className="text-sm text-muted-foreground">
-            Feito com ♥ para simplificar sua vida
+            Gerador de QR Code Profissional — Gratuito e ilimitado
           </p>
         </footer>
       </div>
