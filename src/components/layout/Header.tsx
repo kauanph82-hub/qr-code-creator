@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { QrCode, Menu, X, LogIn, BarChart3, Settings, Crown } from 'lucide-react';
+import { QrCode, Menu, X, BarChart3, Crown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/contexts/AuthContext';
+import { GoogleLoginButton } from '@/components/auth/GoogleLoginButton';
+import { UserMenu } from '@/components/auth/UserMenu';
 
-interface HeaderProps {
-  onLoginClick?: () => void;
-}
-
-export const Header = ({ onLoginClick }: HeaderProps) => {
+export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user, loading } = useAuth();
 
   const navItems = [
     { label: 'Gerador', href: '#generator', icon: QrCode },
@@ -51,22 +51,35 @@ export const Header = ({ onLoginClick }: HeaderProps) => {
 
           {/* Actions */}
           <div className="flex items-center gap-3">
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={onLoginClick}
-              className="hidden sm:flex items-center gap-2 border-border/50"
-            >
-              <LogIn className="w-4 h-4" />
-              Entrar
-            </Button>
-            <Button 
-              size="sm"
-              className="hidden sm:flex items-center gap-2 bg-primary hover:bg-primary/90"
-            >
-              <Crown className="w-4 h-4" />
-              Upgrade Pro
-            </Button>
+            {loading ? (
+              <div className="h-10 w-10 rounded-full bg-secondary/50 animate-pulse" />
+            ) : user ? (
+              <>
+                <Button 
+                  size="sm"
+                  className="hidden sm:flex items-center gap-2 bg-primary hover:bg-primary/90"
+                >
+                  <Crown className="w-4 h-4" />
+                  Upgrade Pro
+                </Button>
+                <UserMenu />
+              </>
+            ) : (
+              <>
+                <GoogleLoginButton 
+                  variant="outline" 
+                  size="sm"
+                  className="hidden sm:flex border-border/50"
+                />
+                <Button 
+                  size="sm"
+                  className="hidden sm:flex items-center gap-2 bg-primary hover:bg-primary/90"
+                >
+                  <Crown className="w-4 h-4" />
+                  Upgrade Pro
+                </Button>
+              </>
+            )}
 
             {/* Mobile Menu Button */}
             <button
@@ -81,7 +94,7 @@ export const Header = ({ onLoginClick }: HeaderProps) => {
         {/* Mobile Menu */}
         <div className={cn(
           "md:hidden overflow-hidden transition-all duration-300",
-          mobileMenuOpen ? "max-h-80 pb-4" : "max-h-0"
+          mobileMenuOpen ? "max-h-96 pb-4" : "max-h-0"
         )}>
           <nav className="flex flex-col gap-1 pt-2">
             {navItems.map((item) => (
@@ -101,14 +114,11 @@ export const Header = ({ onLoginClick }: HeaderProps) => {
               </a>
             ))}
             <hr className="my-2 border-border/30" />
-            <Button 
-              variant="outline" 
-              onClick={onLoginClick}
-              className="mx-4 justify-center gap-2"
-            >
-              <LogIn className="w-4 h-4" />
-              Entrar com Google
-            </Button>
+            {!loading && !user && (
+              <div className="px-4">
+                <GoogleLoginButton className="w-full justify-center" />
+              </div>
+            )}
           </nav>
         </div>
       </div>
