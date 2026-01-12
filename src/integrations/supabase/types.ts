@@ -156,7 +156,17 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_qr_by_short_id: {
+        Args: { p_short_id: string }
+        Returns: {
+          content: string
+          destination_url: string
+          id: string
+          is_active: boolean
+          short_id: string
+          type: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never

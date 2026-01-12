@@ -7,14 +7,6 @@ import { PricingSection } from '@/components/PricingSection';
 import { Sparkles } from 'lucide-react';
 
 const Index = () => {
-  const [showLogin, setShowLogin] = useState(false);
-
-  const handleLoginClick = () => {
-    // TODO: Implementar login com Google OAuth
-    setShowLogin(true);
-    console.log('Login clicked - OAuth to be implemented');
-  };
-
   return (
     <div className="min-h-screen bg-background relative overflow-hidden" id="top">
       {/* Background Effects */}
@@ -34,7 +26,7 @@ const Index = () => {
 
       <div className="relative z-10">
         {/* Header */}
-        <Header onLoginClick={handleLoginClick} />
+        <Header />
 
         {/* Hero Section */}
         <main className="px-4 sm:px-6 py-12 md:py-20" id="generator">
