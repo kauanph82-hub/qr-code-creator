@@ -15,7 +15,7 @@
     --popover: 220 18% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 175 80% 50%;
+    --primary: 25 95% 53%;
     --primary-foreground: 220 20% 6%;
 
     --secondary: 220 15% 15%;
@@ -24,7 +24,7 @@
     --muted: 220 15% 18%;
     --muted-foreground: 215 20% 55%;
 
-    --accent: 175 80% 50%;
+    --accent: 25 95% 53%;
     --accent-foreground: 220 20% 6%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,14 +32,14 @@
 
     --border: 220 15% 20%;
     --input: 220 15% 15%;
-    --ring: 175 80% 50%;
+    --ring: 25 95% 53%;
 
     --radius: 0.75rem;
 
     /* Custom tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(175 80% 50%), hsl(190 80% 45%));
-    --gradient-glow: radial-gradient(circle at center, hsl(175 80% 50% / 0.15), transparent 70%);
-    --shadow-glow: 0 0 60px -15px hsl(175 80% 50% / 0.4);
+    --gradient-primary: linear-gradient(135deg, hsl(25 95% 53%), hsl(35 100% 50%));
+    --gradient-glow: radial-gradient(circle at center, hsl(25 95% 53% / 0.15), transparent 70%);
+    --shadow-glow: 0 0 60px -15px hsl(25 95% 53% / 0.4);
     --shadow-card: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
   }
 
@@ -82,7 +82,7 @@
   }
 
   .input-glow:focus {
-    box-shadow: 0 0 0 3px hsl(175 80% 50% / 0.2);
+    box-shadow: 0 0 0 3px hsl(25 95% 53% / 0.2);
   }
 }
 
